@@ -77,6 +77,8 @@
     "css-loader": "^2.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "express": "^4.16.4",
     "husky": "^1.0.1",
     "jasmine-ajax": "^4.0.0",
