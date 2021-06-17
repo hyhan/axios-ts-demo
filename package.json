@@ -36,15 +36,15 @@
     "precommit": "lint-staged",
     "travis-deploy-once": "travis-deploy-once"
   },
-  "lint-staged": {
-    "{src,test}/**/*.ts": [
-      "eslint --fix"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "eslint --fix"
+    ]
   },
   "config": {
     "commitizen": {
