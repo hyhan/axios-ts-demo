@@ -1,6 +1,9 @@
 import axios, { Canceler } from '../../src/index'
 
-const CancelToken = axios.CancelToken
+const CancelToken = axios.CancelToken;
+
+
+
 
 const source = CancelToken.source()
 
