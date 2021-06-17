@@ -1,24 +1,24 @@
-import { isDate, isObject } from "./utils"
+import { isDate, isObject } from './utils'
 
-function encode(val:string): string {
+function encode(val: string): string {
   return encodeURIComponent(val)
-  .replace(/%40/g, '@')
-  .replace(/%3A/gi, ':')
-  .replace(/%24/g, '$')
-  .replace(/%2C/gi, ',')
-  .replace(/%20/g, '+')
-  .replace(/%5B/gi, '[')
-  .replace(/%5D/gi, ']')
+    .replace(/%40/g, '@')
+    .replace(/%3A/gi, ':')
+    .replace(/%24/g, '$')
+    .replace(/%2C/gi, ',')
+    .replace(/%20/g, '+')
+    .replace(/%5B/gi, '[')
+    .replace(/%5D/gi, ']')
 }
 
-export function buildURL(url:string, params?: any): string {
+export function buildURL(url: string, params?: any): string {
   if (!params) {
     return url
   }
   const parts: string[] = []
   Object.keys(params).forEach(key => {
     const val = params[key]
-    if (val === null || typeof val === 'undefined' ) {
+    if (val === null || typeof val === 'undefined') {
       return
     }
     let values = []
@@ -28,7 +28,7 @@ export function buildURL(url:string, params?: any): string {
     } else {
       values = [val]
     }
-    values.forEach((val) => {
+    values.forEach(val => {
       if (isDate(val)) {
         val = val.toISOString()
       } else if (isObject(val)) {
@@ -37,8 +37,8 @@ export function buildURL(url:string, params?: any): string {
       parts.push(`${encode(key)}=${encode(val)}`)
     })
   })
-  let serializedParams = parts.join('&')
-  console.log(serializedParams)
+  const serializedParams = parts.join('&')
+
   if (serializedParams) {
     const markIndex = url.indexOf('#')
     if (markIndex !== -1) {
@@ -49,3 +49,9 @@ export function buildURL(url:string, params?: any): string {
   }
   return url
 }
+
+// export function isURLSameOrigin(requestURL: string): boolean {
+
+// }
+
+// const urlParsingNode = document.createElement('a')

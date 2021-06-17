@@ -1,7 +1,7 @@
-import { Method } from './../types/index';
-import { deepMerge, isPlainObject } from "./utils";
+import { Method } from './../types/index'
+import { deepMerge, isPlainObject } from './utils'
 
-function normalizeHeaderName(headers:any, normalizedName: string):void {
+function normalizeHeaderName(headers: any, normalizedName: string): void {
   if (!headers) {
     return
   }
@@ -24,8 +24,8 @@ export function processHeaders(headers: any, data: any): any {
   return headers
 }
 
-export function parseHeaders(headers: any):any {
-  let parsed = Object.create(null)
+export function parseHeaders(headers: any): any {
+  const parsed = Object.create(null)
   if (!headers) {
     return parsed
   }
@@ -42,7 +42,7 @@ export function parseHeaders(headers: any):any {
   return parsed
 }
 
-export function flattenHeaders(headers:any, method: Method): any {
+export function flattenHeaders(headers: any, method: Method): any {
   headers = deepMerge(headers.common, headers[method], headers)
 
   const methodsToDelete = ['get', 'delete', 'head', 'options', 'post', 'put', 'patch', 'common']

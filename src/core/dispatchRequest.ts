@@ -29,7 +29,7 @@ function transformResponseData(res: AxiosResponse): AxiosResponse {
 }
 
 function throwIfCancellationRequested(config: AxiosRequestConfig): void {
-  if(config.cancelToken) {
+  if (config.cancelToken) {
     config.cancelToken.throwIfRequested()
   }
 }

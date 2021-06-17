@@ -3,15 +3,18 @@ import axios, { Canceler } from '../../src/index'
 const CancelToken = axios.CancelToken
 const source = CancelToken.source()
 
-axios.get('/cancel/get', {
-  cancelToken: source.token
-}).then(res => {
-  console.log(res)
-}).catch(function(e) {
-  if (axios.isCancel(e)) {
-    console.log('Request canceled', e.message, 'get')
-  }
-})
+axios
+  .get('/cancel/get', {
+    cancelToken: source.token
+  })
+  .then(res => {
+    console.log(res)
+  })
+  .catch(function(e) {
+    if (axios.isCancel(e)) {
+      console.log('Request canceled', e.message, 'get')
+    }
+  })
 
 setTimeout(() => {
   source.cancel('Operation canceled by the user.')

@@ -17,7 +17,7 @@ axios.interceptors.response.use(res => {
   res.data += '1'
   return res
 })
-let interceptor = axios.interceptors.response.use(res => {
+const interceptor = axios.interceptors.response.use(res => {
   res.data += '2'
   return res
 })
@@ -34,6 +34,6 @@ axios({
   headers: {
     test: ''
   }
-}).then((res) => {
+}).then(res => {
   console.log(res.data)
 })
